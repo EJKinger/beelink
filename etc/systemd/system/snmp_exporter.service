@@ -1,0 +1,12 @@
+[Unit]
+Description=snmp_exporter
+
+[Service]
+Type=simple
+User=prometheus
+Group=prometheus
+ExecStart=snmp_exporter --config.file="/etc/snmp.yaml"
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

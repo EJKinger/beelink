@@ -1,0 +1,13 @@
+[Unit]
+Description=prometheus
+
+[Service]
+Type=simple
+User=prometheus
+Group=prometheus
+ExecStart=/usr/local/bin/prometheus --config.file="/etc/prometheus.yaml" --storage.tsdb.retention.size="5GB" --storage.tsdb.path="/var/lib/prometheus/data"
+Restart=always
+WorkingDirectory=/var/lib/prometheus
+
+[Install]
+WantedBy=multi-user.target

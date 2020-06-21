@@ -1,0 +1,12 @@
+home {
+    prometheus
+    file /etc/coredns/db.home
+    errors
+}
+
+. {
+    prometheus
+    forward . 8.8.8.8 8.8.4.4
+    cache 3600
+    errors
+}

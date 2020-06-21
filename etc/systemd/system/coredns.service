@@ -1,0 +1,13 @@
+[Unit]
+Description=coredns
+
+[Service]
+Type=simple
+User=root
+Group=root
+ExecStart=coredns -conf /etc/coredns/Corefile
+Restart=always
+WorkingDirectory=/etc/coredns/
+
+[Install]
+WantedBy=multi-user.target

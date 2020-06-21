@@ -1,0 +1,14 @@
+@  3600  IN  SOA  ns1.home.  root.home.  (
+   2019041900
+   3600
+   600
+   604800
+   600 )
+   3600  IN  NS  ns1.home.
+
+ns1         IN  A  192.168.7.86
+            IN  AAAA  fe80::8639:beff:fe66:411d
+beelink     IN  A  192.168.7.86
+grafana     IN  A  192.168.7.86
+prometheus  IN  A  192.168.7.86
+zyxel       IN  A  192.168.7.88
