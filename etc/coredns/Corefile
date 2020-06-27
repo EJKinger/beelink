@@ -6,7 +6,7 @@ home {
 
 . {
     prometheus
-    forward . https://1.1.1.1 https://1.0.0.1
+    forward . tls://1.1.1.1 tls://1.0.0.1
     cache 3600
     errors
 }
