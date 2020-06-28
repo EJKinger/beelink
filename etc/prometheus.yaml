@@ -58,3 +58,55 @@ scrape_configs:
         target_label: instance
       - target_label: __address__
         replacement: beelink.home:9116  # The SNMP exporter's real hostname:port.
+
+  - job_name: 'blackbox_external_dns'
+    metrics_path: /probe
+    params:
+      module: [dns_google_a]
+    static_configs:
+      - targets:
+        - 8.8.4.4  # Test various public DNS providers are working.
+        - 8.8.8.8
+        - 1.0.0.1
+        - 1.1.1.1
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: 127.0.0.1:9115
+
+  - job_name: 'blackbox'
+    metrics_path: /probe
+    params:
+      module: [http_2xx]  # Look for a HTTP 200 response.
+    static_configs:
+      - targets:
+        - http://prometheus.io    # Target to probe with http.
+        - https://google.com   # Target to probe with https.
+        - http://grafana.home/api/health
+        - http://prometheus.home/-/healthy
+        - http://beelink.home:9100
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: 127.0.0.1:9115  # The blackbox exporter's real hostname:port.
+
+  - job_name: 'blackbox_internal_dns'
+    metrics_path: /probe
+    params:
+      module: [dns_home_a, dns_google_a]
+    static_configs:
+      - targets:
+        - 192.168.7.86
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: 127.0.0.1:9115
