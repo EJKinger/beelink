@@ -83,8 +83,8 @@ scrape_configs:
       module: [http_2xx]  # Look for a HTTP 200 response.
     static_configs:
       - targets:
-        - http://prometheus.io    # Target to probe with http.
-        - https://google.com   # Target to probe with https.
+        - http://prometheus.io     # Target to probe with http.
+        - https://www.google.com   # Target to probe with https.
         - http://grafana.home/api/health
         - http://prometheus.home/-/healthy
         - http://beelink.home:9100
