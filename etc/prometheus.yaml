@@ -22,23 +22,27 @@ scrape_configs:
   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
   - job_name: 'prometheus'
     static_configs:
-    - targets: ['localhost:9090']
+    - targets: ['prometheus.home']
 
   - job_name: 'node_exporter'
     static_configs:
-    - targets: ['localhost:9100']
+    - targets: ['beelink.home:9100']
 
   - job_name: 'grafana'
     static_configs:
-    - targets: ['localhost:3000']
+    - targets: ['grafana.home']
 
   - job_name: 'snmp_exporter'
     static_configs:
-    - targets: ['localhost:9116']
+    - targets: ['beelink.home:9116']
 
   - job_name: 'coredns'
     static_configs:
-      - targets: ['localhost:9153']
+      - targets: ['beelink.home:9153']
+
+  - job_name: 'blackbox_exporter'
+    static_configs:
+      - targets: ['bb-beelink.home:9115']
 
   - job_name: 'snmp'
     static_configs:
@@ -53,4 +57,4 @@ scrape_configs:
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
-        replacement: localhost:9116  # The SNMP exporter's real hostname:port.
+        replacement: beelink.home:9116  # The SNMP exporter's real hostname:port.

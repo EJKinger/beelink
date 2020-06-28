@@ -1,0 +1,12 @@
+[Unit]
+Description=blackbox_exporter
+
+[Service]
+Type=simple
+User=prometheus
+Group=prometheus
+ExecStart=/usr/local/bin/blackbox_exporter --config.file="/etc/blackbox.yaml" --web.listen-address=":9115"
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

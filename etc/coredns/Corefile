@@ -1,11 +1,13 @@
 home {
-    prometheus
+    prometheus :9153
+    log
     file /etc/coredns/db.home
     errors
 }
 
 . {
-    prometheus
+    prometheus :9153
+    log
     forward . tls://1.1.1.1 tls://1.0.0.1
     cache 3600
     errors
