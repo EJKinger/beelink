@@ -8,6 +8,8 @@
 
 ns1         IN  A  192.168.7.86
             IN  AAAA  fe80::8639:beff:fe66:411d
+pi1         IN  A  192.168.7.91
+
 beelink     IN  A  192.168.7.86
 bb-beelink  IN  A  192.168.7.86
 grafana     IN  A  192.168.7.86

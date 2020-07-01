@@ -1,4 +1,5 @@
 home {
+    reload 60s
     prometheus :9153
     log
     file /etc/coredns/db.home
