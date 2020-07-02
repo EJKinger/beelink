@@ -26,7 +26,7 @@ scrape_configs:
 
   - job_name: 'node_exporter'
     static_configs:
-    - targets: ['beelink.home:9100']
+    - targets: ['beelink.home:9100', 'pi1.home:9100']
 
   - job_name: 'grafana'
     static_configs:
@@ -63,50 +63,55 @@ scrape_configs:
     metrics_path: /probe
     params:
       module: [dns_google_a]
-    static_configs:
-      - targets:
-        - 8.8.4.4  # Test various public DNS providers are working.
-        - 8.8.8.8
-        - 1.0.0.1
-        - 1.1.1.1
+    file_sd_configs:
+      - files:
+        - '/etc/__blackbox__dns_google_a__targets.json'
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
       - source_labels: [__param_target]
         target_label: instance
-      - target_label: __address__
-        replacement: 127.0.0.1:9115
+      - target_label: job
+        replacement: 'blackbox_external_dns'
+      - target_label: module
+        replacement: 'dns_google_a'
+      - source_labels: [exporter]
+        target_label: __address__
 
   - job_name: 'blackbox'
     metrics_path: /probe
     params:
       module: [http_2xx]  # Look for a HTTP 200 response.
-    static_configs:
-      - targets:
-        - http://prometheus.io     # Target to probe with http.
-        - https://www.google.com   # Target to probe with https.
-        - http://grafana.home/api/health
-        - http://prometheus.home/-/healthy
-        - http://beelink.home:9100
+    file_sd_configs:
+      - files:
+        - '/etc/__blackbox__http_2xx__targets.json'
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
       - source_labels: [__param_target]
         target_label: instance
-      - target_label: __address__
-        replacement: 127.0.0.1:9115  # The blackbox exporter's real hostname:port.
+      - target_label: job
+        replacement: 'blackbox'
+      - target_label: module
+        replacement: 'http_2xx'
+      - source_labels: [exporter]
+        target_label: __address__
 
   - job_name: 'blackbox_internal_dns'
     metrics_path: /probe
     params:
       module: [dns_home_a, dns_google_a]
-    static_configs:
-      - targets:
-        - 192.168.7.86
+    file_sd_configs:
+      - files:
+        - '/etc/__blackbox__dns_home_a__targets.json'
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target
       - source_labels: [__param_target]
         target_label: instance
-      - target_label: __address__
-        replacement: 127.0.0.1:9115
+      - target_label: job
+        replacement: 'blackbox_internal_dns'
+      - target_label: module
+        replacement: 'dns_home_a,dns_google_a'
+      - source_labels: [exporter]
+        target_label: __address__
