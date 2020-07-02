@@ -3,7 +3,7 @@ Description=node_exporter
 
 [Service]
 Type=simple
-ExecStart=/usr/local/bin/node_exporter --collector.textfile.directory="/var/lib/node_exporter/textfile_collector/"
+ExecStart=/usr/local/bin/node_exporter --collector.textfile.directory="/var/lib/node_exporter/textfile_collector/ --collector.interrupts --collector.logind --collector.meminfo_numa --collector.mountstats --collector.ntp --collector.processes --collector.supervisord --collector.systemd --collector.tcpstat --collector.wifi"
 Restart=always
 
 [Install]
