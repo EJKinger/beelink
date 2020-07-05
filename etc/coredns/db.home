@@ -12,6 +12,7 @@ pi1         IN  A  192.168.7.91
 
 beelink     IN  A  192.168.7.86
 bb-beelink  IN  A  192.168.7.86
+cortex      IN  A  192.168.7.86
 grafana     IN  A  192.168.7.86
 prometheus  IN  A  192.168.7.86
 zyxel       IN  A  192.168.7.88
