@@ -15,6 +15,7 @@ Bundle 'gmarik/vundle'
 Bundle 'Valloric/YouCompleteMe'
 Plugin 'godlygeek/tabular'
 Plugin 'fatih/vim-go'
+Plugin 'buoto/gotests-vim'
 "
 "
 " " All of your Plugins must be added before the following line

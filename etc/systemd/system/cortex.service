@@ -1,0 +1,13 @@
+[Unit]
+Description=cortex
+
+[Service]
+Type=simple
+User=cortex
+Group=cortex
+ExecStart=/usr/local/bin/cortex -config.file=/etc/cortex.yaml
+Restart=always
+WorkingDirectory=/enas/cortex/
+
+[Install]
+WantedBy=multi-user.target
