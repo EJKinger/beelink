@@ -17,3 +17,5 @@ cortex      IN  A  192.168.7.86
 grafana     IN  A  192.168.7.86
 prometheus  IN  A  192.168.7.86
 zyxel       IN  A  192.168.7.88
+
+ryzen       IN  A  192.168.7.90
