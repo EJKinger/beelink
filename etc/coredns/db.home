@@ -18,6 +18,6 @@ grafana     IN  A  192.168.7.86
 prometheus  IN  A  192.168.7.86
 zyxel       IN  A  192.168.7.88
 
-ryzen       IN  A  192.168.7.95
+ryzen1      IN  A  192.168.7.104
 
-freenas     IN  A  192.168.7.98
+freenas1    IN  A  192.168.7.105
