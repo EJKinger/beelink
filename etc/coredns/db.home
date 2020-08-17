@@ -20,6 +20,6 @@ zyxel       IN  A  192.168.7.88
 
 ryzen1      IN  A  192.168.7.102
 
-freenas1    IN  A  192.168.7.105
+truenas1    IN  A  192.168.7.109
 
 windows1    IN  A  192.168.7.106
