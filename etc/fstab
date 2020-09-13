@@ -11,3 +11,4 @@
 /dev/disk/by-uuid/20A0-37C9 /boot/efi vfat defaults 0 0
 /swap.img	none	swap	sw	0	0
 //pi1.home/cortex /enas/cortex cifs credentials=/etc/samba/.cortexcreds,x-systemd.requires=coredns.service,x-systemd.requires=network-online.target,_netdev,x-systemd.automount,file_mode=0755,dir_mode=0755,rw,uid=cortex,gid=cortex 0 0
+UUID=eb658c75-b1bf-477c-9481-f728861d08da /prometheus ext2 _netdev 0 0

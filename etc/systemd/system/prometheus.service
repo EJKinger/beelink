@@ -7,7 +7,7 @@ User=prometheus
 Group=prometheus
 ExecStart=/usr/local/bin/prometheus --config.file="/etc/prometheus.yaml" --storage.tsdb.retention.size="95GiB" --storage.tsdb.path="/prometheus/data"
 Restart=always
-WorkingDirectory=/var/lib/prometheus
+WorkingDirectory=/prometheus
 
 [Install]
 WantedBy=multi-user.target
