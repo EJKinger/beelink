@@ -11,6 +11,8 @@ ns1         IN  A  192.168.7.86
 pi1         IN  A  192.168.7.91
 plex        IN  A  192.168.7.91
 
+pi2         IN  A  192.168.7.121
+
 beelink     IN  A  192.168.7.86
 bb-beelink  IN  A  192.168.7.86
 cortex      IN  A  192.168.7.86
@@ -23,3 +25,5 @@ ryzen1      IN  A  192.168.7.111
 truenas1    IN  A  192.168.7.112
 
 windows1    IN  A  192.168.7.106
+
+rancher1    IN  A  192.168.7.118
