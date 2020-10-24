@@ -29,4 +29,6 @@ truenas1    IN  A  192.168.7.112
 
 windows1    IN  A  192.168.7.106
 
-devbox1     IN A 192.168.7.132
+devbox1     IN A   192.168.7.132
+
+kube-cp1    IN  A  192.168.7.134
